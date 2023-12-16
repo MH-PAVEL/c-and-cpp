@@ -1,27 +1,32 @@
 #include <iostream>
-
 using namespace std;
+
+int bubbleSort(int arr[], int n){
+    bool swapped = false;
+    for(int i =1;i<n;i++){
+        for(int j=0;j<n-i;j++){
+            if(arr[j] > arr[j+1]){
+                swap(arr[j],arr[j+1]);
+                swapped = true;
+            }
+        }
+        if(swapped == false) break;
+    }
+    return 0;
+}
 
 int main()
 {
-    int n=8;
-    int arr[n] = {2,3,100,26,588,66,90,1}; 
-    
-    int iteration = 1;
-    while(iteration < n){
-        for(int i =0; i < n-iteration; i++){
-            if(arr[i] > arr[i+1]){
-                int temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
-            }
-        }
-        iteration++;
-    }
-
+    int n,key;
+    cin >> n;
+     int arr[n];
     for(int i = 0; i<n;i++){
-        cout << arr[i] << " ";
+        cin>> arr[i];
     }
-
+    bubbleSort(arr,n);
+    for(int i = 0; i<n;i++){
+        cout << arr[i]<< " ";
+    }
+    cout<< endl;
     return 0;
 }
